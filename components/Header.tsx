@@ -4,10 +4,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Image from 'next/image';
+import logo from '../public/spiderman.svg'
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import { useScrollTrigger } from '@mui/material';
+import {makeStyles} from '@mui/styles'
 
 function ElevationScroll({children}) {
   const trigger = useScrollTrigger({
@@ -20,8 +23,16 @@ function ElevationScroll({children}) {
   });
 }
 
+const useStyles = makeStyles((theme:any)=>({
+  logo: {
+    height: "7rem",
+    color: 'black'
+  },
+})) 
+
 
 export default function MenuAppBar() {
+  const classes = useStyles()
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -43,7 +54,17 @@ export default function MenuAppBar() {
       <ElevationScroll>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
+        <IconButton
+            size="small"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+            className={classes.logo}
+          >
+            <Image height={20} width={20} alt="Spiderman" className={classes.logo} src={logo} />
+          </IconButton>
+          <Typography variant="h4" component="div" sx={{ flexGrow: 1 }} style={{fontFamily: 'Montserrat'}}>
             Habit Tracker
           </Typography>
           {auth && (

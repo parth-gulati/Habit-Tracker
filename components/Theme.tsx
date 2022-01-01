@@ -2,7 +2,8 @@ import { createTheme } from "@mui/material";
 
 const arcBlue = '#0B72B9';
 const arcOrange = '#FFBA60';
-const pitchBlack = '#000001';
+const primaryColor = '#DF1F2D';
+const pitchBlack = `#000000`
 
 export default createTheme({
     palette: {
@@ -11,7 +12,7 @@ export default createTheme({
             arcOrange : `${arcOrange}`
         },
         primary: {
-            main: `${pitchBlack}`
+            main: `${primaryColor}`,
         },
         secondary: {
             main: `${arcOrange}`
@@ -21,7 +22,7 @@ export default createTheme({
         h3: {
             fontWeight: 300
         },
-        h4: {
+        h6: {
             fontWeight: 300
         }
     }
